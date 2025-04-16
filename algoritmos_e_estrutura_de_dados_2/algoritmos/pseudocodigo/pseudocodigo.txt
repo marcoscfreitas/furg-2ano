@@ -1,0 +1,37 @@
+algoritmo MULTIPLICA()
+
+string op1_str, op2_str;
+int op1[4], op2[4], res[8], aux_mult, sobe, res_aux[5]
+
+escreva('informe o 1 operador: ');
+leia(op1_str)
+escreva('informe o 2 operador: ');
+leia(op2_str)
+
+para i = 1 até 4 faça // laço para transformar operadores em inteiros
+    op1[i] = int(op1_str[i])
+    op2[i] = int(op2_str[i])
+fim para
+
+para i = 1 até 8 faça // laço para iniciar a resposta com vetor de 8 espaços
+    res[i] = 0;
+
+para i = 4 até(downto) 1 faça // laço para percorrer o operador 2
+    sobe = 0; // inicia o sobe como zero, para somar na proxima multiplicação
+    para j = 4 até(downto) 1 faça // laço para percorrer o operador 1
+
+        aux_mult = op1[j] * op2[i] + sobe; // multiplicação auxiliar será a multiplicação dos numeros, mais o que subiu da multiplicação anterior
+        res_aux[j+1] = aux_mult mod 10; // resultado auxiliar será o mod (numero da direita) da multiplicação auxiliar
+        sobe = aux_mult div 10; // vai subir a divisao inteira (numero da esquerda) da multiplicação auxiliar
+    fim para;
+    res_aux[1] = sobe; sobe = 0; // res_aux tem 5 espaços, e como o for termina no 4, ao fim do loop o sobe entra na primeira posição e zera-se o sobe após para usar no próximo loop
+
+    para j = 4 até(downto) 0 faça // laço para somar as multipicações auxliares
+        aux_soma = res_aux[j+1] + res[i+j] + sobe; // a soma auxiliar vai ser a soma de numero por numero da resposta auxiliar no vetor de resposta direto, com 8 posições, mais o sobe caso tenha valor
+        res[i+j] = aux_soma mod 10; // logo após a soma auxiliar terminar, seu mod (numero da direita) entrará no vetor resposta
+        sobe = aux_soma div 10; // divisão inteira (numero da esquerda) da soma auxiliar funcionará como sobe para o proximo loop
+    fim para
+fim para
+mostre(res)
+
+FIM ALGORITMO
