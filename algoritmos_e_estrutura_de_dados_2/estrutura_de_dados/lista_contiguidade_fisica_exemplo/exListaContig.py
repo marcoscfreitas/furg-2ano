@@ -19,5 +19,5 @@ if (lista.Inserir(1,carroB)) :
 if (lista.Inserir(1,carroC)) :
     print(lista)
 
-meuCarro = lista.Consultar(5)
+meuCarro = lista.encontraValor(5)
 print(meuCarro)
