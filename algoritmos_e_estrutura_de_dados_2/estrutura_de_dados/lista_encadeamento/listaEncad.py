@@ -68,6 +68,24 @@ class ListaEnc :
     #     while cont != cont1 :
     #         if var.valor == valor :
     #             return var.posicao
+
+        def remover(self, pos):
+        if (pos + 1 <= self.tam and pos >= 0):
+            if pos == 0:
+                if self.tam == 1:
+                    self.fim =  None
+                self.ini = self.ini.prox
+                else:
+                    aux = self.ini
+                    for i in range(pos - 1):
+                        aux = aux.prox
+                    aux.prox = aux.prox.prox
+                if pos == self.tam:
+                    self.fim = aux
+                self.tam -= 1
+                return true
+        else:
+            return false
         
 lista = ListaEnc()
 lista.inserir(0,'A')
