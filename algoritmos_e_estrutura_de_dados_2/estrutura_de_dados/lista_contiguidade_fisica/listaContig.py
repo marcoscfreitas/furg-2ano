@@ -33,7 +33,7 @@ class Lista :
 
     def encontraPosicao(self,valor) :
         for i in range(self.ini, self.fim + 1) :
-            if valor == self.vetor[i]
+            if valor == self.vetor[i] :
                 return i - self.ini
         return None
         
@@ -60,7 +60,7 @@ class Lista :
 
 
     def inserirAlt(self, pos, valor) :
-        if pos >= 0 and pos <= self.Tamanho() and self.Tamanho() < self.max
+        if pos >= 0 and pos <= self.Tamanho() and self.Tamanho() < self.max :
             if self.Vazia() : # se a lista for vazia, insere no meio
                 self.ini = self.max//2
                 self.fim = self.max//2
@@ -68,7 +68,7 @@ class Lista :
             elif pos == 0 and self.ini != 0 : # 
                 self.ini = self.ini - 1
                 self.vetor[self.ini] = valor
-            elif pos == self.Tamanho() and self.fim != max - 1 # 
+            elif pos == self.Tamanho() and self.fim != max - 1 : #
                 self.fim = self.fim + 1
                 self.vetor[self.fim] = valor
             elif self.fim == max - 1 : # 
@@ -78,7 +78,7 @@ class Lista :
             else : #
                 self.fim = self.fim + 1
                 for i in range(self.fim, self.ini + pos) : 
-                    vetor[i] = self.vetor[i-1]
+                    self.vetor[i] = self.vetor[i-1]
                 self.vetor[self.ini+pos] = valor
 
 
