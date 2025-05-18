@@ -28,3 +28,30 @@ class pilhaCont :
         self.topo = -1
         self.vetor = None
         self.limite = 0
+    
+    def inverter(self) :
+        if self.topo >= self.base :
+            temp_pilha = []
+            while self.topo >= self.base :
+                temp_pilha.append(self.remover())
+            for item in temp_pilha :
+                self.inserir(item)
+            return True
+        return False
+
+    def iguais(self, outra_pilha):
+        if self.topo != outra_pilha.topo:
+            return False
+        for i in range(self.topo + 1):
+            if self.vetor[i] != outra_pilha.vetor[i]:
+                return False
+        return True
+
+    def menor(self):
+        if self.topo >= self.base:
+            menor = self.vetor[self.base]
+            for i in range(self.base + 1, self.topo + 1):
+                if self.vetor[i] < menor:
+                    menor = self.vetor[i]
+            return menor
+        return None
